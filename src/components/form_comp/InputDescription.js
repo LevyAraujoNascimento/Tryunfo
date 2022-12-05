@@ -4,11 +4,11 @@ class InputDescription extends React.Component {
   render() {
     const { cardDescription, onInputChange } = this.props;
     return (
-      <label htmlFor="card-description">
+      <label htmlFor="cardDescription">
         <textarea
-          id="card-description"
+          id="cardDescription"
           data-testid="description-input"
-          name="card-description"
+          name="cardDescription"
           rows="5"
           cols="50"
           maxLength="250"

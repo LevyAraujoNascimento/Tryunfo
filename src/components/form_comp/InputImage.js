@@ -4,13 +4,13 @@ class InputImage extends React.Component {
   render() {
     const { cardImage, onInputChange } = this.props;
     return (
-      <label htmlFor="image-input">
+      <label htmlFor="cardImage">
         Imagem :
         <input
-          id="image-input"
+          id="cardImage"
           data-testid="image-input"
           type="text"
-          name="image-input"
+          name="cardImage"
           maxLength="30"
           required
           value={ cardImage }

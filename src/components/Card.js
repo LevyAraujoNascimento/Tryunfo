@@ -22,7 +22,7 @@ class Card extends React.Component{
           <li data-testid="attr3-card">{ cardAttr3 }</li>
         </ul>
         <h3 data-testid="rare-card">{ cardRare }</h3>
-        <span data-testid="trunfo-card">{trunfo ? trunfo : "" }</span>
+        <span data-testid="trunfo-card">{trunfo ? trunfo : ""}</span>
       </div>
     );
   }    

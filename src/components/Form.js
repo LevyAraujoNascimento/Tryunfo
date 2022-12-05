@@ -12,7 +12,7 @@ class Form extends React.Component {
     const {
       cardName, cardDescription, cardAttr1,
       cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo, hasTrunfo,
+      cardRare, cardTrunfo,
       isSaveButtonDisabled, onInputChange, onSaveButtonClick,
     } = this.props;
 
@@ -27,19 +27,19 @@ class Form extends React.Component {
           onInputChange={ onInputChange }
         />
         <InputAttr
-          nameAttr="Força"
+          nameAttr="For"
           attr="attr1-input"
           cardAttr={ cardAttr1 }
           onInputChange={ onInputChange }
         />
         <InputAttr
-          nameAttr="Velocidade"
+          nameAttr="Vel"
           attr="attr2-input"
           cardAttr={ cardAttr2 }
           onInputChange={ onInputChange }
         />
         <InputAttr
-          nameAttr="Inteligência"
+          nameAttr="Int"
           attr="attr3-input"
           cardAttr={ cardAttr3 }
           onInputChange={ onInputChange }
@@ -74,7 +74,6 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,

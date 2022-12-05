@@ -11,7 +11,7 @@ class InputAttr extends React.Component {
           id={ attr }
           data-testid={ attr }
           type="number"
-          name={ attr }
+          name={ nameAttr }
           maxLength="30"
           required
           value={ cardAttr }

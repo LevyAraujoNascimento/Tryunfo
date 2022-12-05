@@ -4,13 +4,13 @@ class InputCheckbox extends React.Component {
   render() {
     const { cardTrunfo, onInputChange } = this.props;
     return (
-      <label htmlFor="trunfo-input">
+      <label htmlFor="cardTrunfo">
         Super Trunfo
         <input
-          id="trunfo-input"
+          id="cardTrunfo"
           data-testid="trunfo-input"
           type="checkbox"
-          name="trunfo-input"
+          name="cardTrunfo"
           checked={ cardTrunfo }
           onChange={ onInputChange }
         />

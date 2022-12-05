@@ -4,13 +4,13 @@ class InputName extends React.Component {
   render() {
     const { cardName, onInputChange } = this.props;
     return (
-      <label htmlFor="card-name">
+      <label htmlFor="cardName">
         Nome da Carta :
         <input
-          id="card-name"
+          id="cardName"
           data-testid="name-input"
           type="text"
-          name="card-name"
+          name="cardName"
           maxLength="30"
           required
           value={ cardName }
