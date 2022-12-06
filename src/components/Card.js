@@ -1,20 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class Card extends React.Component{
-  render(){
-    const { 
+class Card extends React.Component {
+  render() {
+    const {
       cardName, cardDescription, cardAttr1,
       cardAttr2, cardAttr3, cardImage,
       cardRare, cardTrunfo,
     } = this.props;
-    
+
     let trunfo = undefined;
-    if (cardTrunfo === true) trunfo = "Super Trunfo";
+    if (cardTrunfo === true) trunfo = 'Super Trunfo';
 
     return (
-      <div>
+      <fieldset>
         <h2 data-testid="name-card">{ cardName }</h2>
-        <img src={ cardImage } alt={ cardName } data-testid="image-card"/>
+        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
         <p data-testid="description-card">{ cardDescription }</p>
         <ul>
           <li data-testid="attr1-card">{ cardAttr1 }</li>
@@ -22,10 +23,10 @@ class Card extends React.Component{
           <li data-testid="attr3-card">{ cardAttr3 }</li>
         </ul>
         <h3 data-testid="rare-card">{ cardRare }</h3>
-        <span data-testid="trunfo-card">{trunfo ? trunfo : ""}</span>
-      </div>
+        <span data-testid="trunfo-card">{trunfo ? trunfo : ''}</span>
+      </fieldset>
     );
-  }    
+  }
 }
 
 Card.propTypes = {
@@ -37,6 +38,6 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-};   
+};
 
 export default Card;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputAttr from './form_comp/InputAttr';
 import InputCheckbox from './form_comp/InputCheckbox';
 import InputDescription from './form_comp/InputDescription';

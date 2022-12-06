@@ -10,7 +10,7 @@ class InputAttr extends React.Component {
         <input
           id={ attr }
           data-testid={ attr }
-          type="number"
+          type="text"
           name={ nameAttr }
           maxLength="30"
           required

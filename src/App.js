@@ -6,9 +6,9 @@ class App extends React.Component {
   state = {
     cardName: '',
     cardDescription: '',
-    For: 0,
-    Vel: 0,
-    Int: 0,
+    For: '',
+    Vel: '',
+    Int: '',
     cardImage: '',
     cardRare: '',
     cardTrunfo: false,
