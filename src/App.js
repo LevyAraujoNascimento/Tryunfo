@@ -13,6 +13,7 @@ class App extends React.Component {
     cardRare: '',
     cardTrunfo: false,
     isSaveButtonDisabled: true,
+    cards: [],
   };
   
   TesteUm = () => {
@@ -29,13 +30,15 @@ class App extends React.Component {
   TesteDois = () => {
     const { For, Vel, Int } = this.state;
     const result = Number(For) + Number(Vel) + Number(Int);
+    const somaMax = 210;
+    const vMax = 90;
     if (Number(For) < 0 || Number(Vel) < 0 || Number(Int) < 0) {
       return false;
     }
-    if (Number(For) > 90 || Number(Vel) > 90 || Number(Int) > 90) {
+    if (Number(For) > vMax || Number(Vel) > vMax || Number(Int) > vMax) {
       return false;
     }
-    if (result > 210) {
+    if (result > somaMax) {
       return false;
     }
     return true;
@@ -57,6 +60,36 @@ class App extends React.Component {
       });
     }
   };
+  
+  OnSaveButtonClick = () => {
+    const { cardName, cardDescription, cardImage, cardRare,
+            For, Vel, Int, cardTrunfo, cards } = this.state;
+    const obj = {
+      cardName: cardName,
+      cardDescription: cardDescription,
+      For: For,
+      Vel: Vel,
+      Int: Int,
+      cardImage: cardImage,
+      cardRare: cardRare,
+      cardTrunfo: cardTrunfo,
+    };
+    
+    cards.push(obj);
+    
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      For: '',
+      Vel: '',
+      Int: '',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+      cards: cards,
+    });
+  };
 
   render() {
     const { cardName, cardDescription, For,
@@ -76,6 +109,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ this.OnSaveButtonClick }
           onInputChange={ this.OnInputChange }
         />
         <Card
