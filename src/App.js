@@ -19,31 +19,21 @@ class App extends React.Component {
 
   TesteUm = () => {
     const { cardName, cardDescription, cardImage, cardRare } = this.state;
-    if (cardName.length > 0 &&
-        cardDescription.length > 0 &&
-        cardImage.length > 0 &&
-        cardRare.length > 0) {
-          return true;
-    }
-    return false
-  }
+    return cardName.length > 0
+        && cardDescription.length > 0
+        && cardImage.length > 0
+        && cardRare.length > 0;
+  };
 
   TesteDois = () => {
     const { For, Vel, Int } = this.state;
     const result = Number(For) + Number(Vel) + Number(Int);
     const somaMax = 210;
     const vMax = 90;
-    if (Number(For) < 0 || Number(Vel) < 0 || Number(Int) < 0) {
-      return false;
-    }
-    if (Number(For) > vMax || Number(Vel) > vMax || Number(Int) > vMax) {
-      return false;
-    }
-    if (result > somaMax) {
-      return false;
-    }
-    return true;
-  }
+    return Number(For) >= 0 && Number(Vel) >= 0 && Number(Int) >= 0
+        && Number(For) <= vMax && Number(Vel) <= vMax && Number(Int) <= vMax
+        && result <= somaMax;
+  };
 
   OnInputChange = async ({ target }) => {
     const { name } = target;
@@ -61,29 +51,29 @@ class App extends React.Component {
       });
     }
   };
-  
+
   OnSaveButtonClick = () => {
     const { cardName, cardDescription, cardImage, cardRare,
-            For, Vel, Int, cardTrunfo, cards } = this.state;
+      For, Vel, Int, cardTrunfo, cards } = this.state;
     const obj = {
-      cardName: cardName,
-      cardDescription: cardDescription,
-      For: For,
-      Vel: Vel,
-      Int: Int,
-      cardImage: cardImage,
-      cardRare: cardRare,
-      cardTrunfo: cardTrunfo,
+      cardName,
+      cardDescription,
+      For,
+      Vel,
+      Int,
+      cardImage,
+      cardRare,
+      cardTrunfo,
     };
-    
+
     if (cardTrunfo) {
       this.setState({
         hasTrunfo: true,
       });
     }
-    
+
     cards.push(obj);
-    
+
     this.setState({
       cardName: '',
       cardDescription: '',
@@ -94,7 +84,7 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
-      cards: cards,
+      cards,
     });
   };
 
@@ -102,21 +92,21 @@ class App extends React.Component {
     const { cardName, cardDescription, For,
       Vel, Int, cardImage, cardRare, hasTrunfo,
       cardTrunfo, isSaveButtonDisabled, cards } = this.state;
-    
-    const cartas = cards.map((carta) => {
-      return (<li key={ carta.cardName }>
-                <Card
-                  cardName={ carta.cardName }
-                  cardDescription={ carta.cardDescription }
-                  cardAttr1={ carta.For }
-                  cardAttr2={ carta.Vel }
-                  cardAttr3={ carta.Int }
-                  cardImage={ carta.cardImage }
-                  cardRare={ carta.cardRare }
-                  cardTrunfo={ carta.cardTrunfo }
-                />
-              </li>);  
-    });  
+
+    const cartas = cards.map((carta) => (
+      <li key={ carta.cardName }>
+        <Card
+          cardName={ carta.cardName }
+          cardDescription={ carta.cardDescription }
+          cardAttr1={ carta.For }
+          cardAttr2={ carta.Vel }
+          cardAttr3={ carta.Int }
+          cardImage={ carta.cardImage }
+          cardRare={ carta.cardRare }
+          cardTrunfo={ carta.cardTrunfo }
+        />
+      </li>
+    ));
 
     return (
       <div>
