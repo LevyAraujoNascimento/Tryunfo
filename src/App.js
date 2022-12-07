@@ -101,7 +101,22 @@ class App extends React.Component {
   render() {
     const { cardName, cardDescription, For,
       Vel, Int, cardImage, cardRare, hasTrunfo,
-      cardTrunfo, isSaveButtonDisabled } = this.state;
+      cardTrunfo, isSaveButtonDisabled, cards } = this.state;
+    
+    const cartas = cards.map((carta) => {
+      return (<li key={ carta.cardName }>
+                <Card
+                  cardName={ carta.cardName }
+                  cardDescription={ carta.cardDescription }
+                  cardAttr1={ carta.For }
+                  cardAttr2={ carta.Vel }
+                  cardAttr3={ carta.Int }
+                  cardImage={ carta.cardImage }
+                  cardRare={ carta.cardRare }
+                  cardTrunfo={ carta.cardTrunfo }
+                />
+              </li>);  
+    });  
 
     return (
       <div>
@@ -131,6 +146,9 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           onInputChange={ this.OnInputChange }
         />
+        <ul>
+          { cartas }
+        </ul>
       </div>
     );
   }
