@@ -54,12 +54,11 @@ class Form extends React.Component {
           onInputChange={ onInputChange }
         />
         {
-          !hasTrunfo
-          ? <InputCheckbox
-              cardTrunfo={ cardTrunfo }
-              onInputChange={ onInputChange }
-            />
-          : <p>Você já tem um Super Trunfo em seu baralho</p>
+          !hasTrunfo ? <InputCheckbox
+            cardTrunfo={ cardTrunfo }
+            onInputChange={ onInputChange }
+          />
+            : <p>Você já tem um Super Trunfo em seu baralho</p>
         }
         <SaveButton
           isSaveButtonDisabled={ isSaveButtonDisabled }
