@@ -9,9 +9,6 @@ class Card extends React.Component {
       cardRare, cardTrunfo,
     } = this.props;
 
-    let trunfo = undefined;
-    if (cardTrunfo === true) trunfo = 'Super Trunfo';
-
     return (
       <fieldset>
         <h2 data-testid="name-card">{ cardName }</h2>
@@ -23,7 +20,7 @@ class Card extends React.Component {
           <li data-testid="attr3-card">{ cardAttr3 }</li>
         </ul>
         <h3 data-testid="rare-card">{ cardRare }</h3>
-        <span data-testid="trunfo-card">{trunfo ? trunfo : ''}</span>
+        <span data-testid="trunfo-card">{ cardTrunfo ? 'Super Trunfo' : '' }</span>
       </fieldset>
     );
   }
