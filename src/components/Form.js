@@ -54,8 +54,8 @@ class Form extends React.Component {
           onInputChange={ onInputChange }
         />
         {
-          !hasTrunfo ? 
-            <InputCheckbox
+          !hasTrunfo
+          ? <InputCheckbox
               cardTrunfo={ cardTrunfo }
               onInputChange={ onInputChange }
             />
