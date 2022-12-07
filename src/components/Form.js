@@ -53,10 +53,14 @@ class Form extends React.Component {
           cardRare={ cardRare }
           onInputChange={ onInputChange }
         />
-        <InputCheckbox
-          cardTrunfo={ cardTrunfo }
-          onInputChange={ onInputChange }
-        />
+        {
+          !hasTrunfo ? 
+            <InputCheckbox
+              cardTrunfo={ cardTrunfo }
+              onInputChange={ onInputChange }
+            />
+          : <p>Você já tem um Super Trunfo em seu baralho</p>
+        }
         <SaveButton
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ onSaveButtonClick }

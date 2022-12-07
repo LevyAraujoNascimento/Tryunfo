@@ -12,10 +12,11 @@ class App extends React.Component {
     cardImage: '',
     cardRare: '',
     cardTrunfo: false,
+    hasTrunfo: false,
     isSaveButtonDisabled: true,
     cards: [],
   };
-  
+
   TesteUm = () => {
     const { cardName, cardDescription, cardImage, cardRare } = this.state;
     if (cardName.length > 0 &&
@@ -75,6 +76,12 @@ class App extends React.Component {
       cardTrunfo: cardTrunfo,
     };
     
+    if (cardTrunfo) {
+      this.setState({
+        hasTrunfo: true,
+      });
+    }
+    
     cards.push(obj);
     
     this.setState({
@@ -93,7 +100,7 @@ class App extends React.Component {
 
   render() {
     const { cardName, cardDescription, For,
-      Vel, Int, cardImage, cardRare,
+      Vel, Int, cardImage, cardRare, hasTrunfo,
       cardTrunfo, isSaveButtonDisabled } = this.state;
 
     return (
@@ -108,6 +115,7 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
+          hasTrunfo={ hasTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.OnSaveButtonClick }
           onInputChange={ this.OnInputChange }
