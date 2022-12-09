@@ -38,9 +38,9 @@ class App extends React.Component {
   OnInputChange = async ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    await this.setState({
+    this.setState(() => ({
       [name]: value,
-    });
+    }));
     if (this.TesteUm() && this.TesteDois()) {
       this.setState({
         isSaveButtonDisabled: false,
