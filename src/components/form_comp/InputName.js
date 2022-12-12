@@ -12,7 +12,7 @@ class InputName extends React.Component {
           data-testid="name-input"
           type="text"
           name="cardName"
-          maxLength="30"
+          maxLength="50"
           required
           value={ cardName }
           onChange={ onInputChange }
