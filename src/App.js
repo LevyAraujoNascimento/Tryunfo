@@ -35,21 +35,20 @@ class App extends React.Component {
         && result <= somaMax;
   };
 
-  OnInputChange = async ({ target }) => {
+  OnInputChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState(() => ({
-      [name]: value,
-    }));
-    if (this.TesteUm() && this.TesteDois()) {
-      this.setState({
-        isSaveButtonDisabled: false,
-      });
-    } else {
-      this.setState({
-        isSaveButtonDisabled: true,
-      });
-    }
+    this.setState(() => ({ [name]: value }), () => {
+      if (this.TesteUm() && this.TesteDois()) {
+        this.setState(() => ({
+          isSaveButtonDisabled: false,
+        }));
+      } else {
+        this.setState(() => ({
+          isSaveButtonDisabled: true,
+        }));
+      }
+    });
   };
 
   OnSaveButtonClick = () => {
@@ -67,14 +66,14 @@ class App extends React.Component {
     };
 
     if (cardTrunfo) {
-      this.setState({
+      this.setState(() => ({
         hasTrunfo: true,
-      });
+      }));
     }
 
     cards.push(obj);
 
-    this.setState({
+    this.setState(() => ({
       cardName: '',
       cardDescription: '',
       For: '',
@@ -85,7 +84,7 @@ class App extends React.Component {
       cardTrunfo: false,
       isSaveButtonDisabled: true,
       cards,
-    });
+    }));
   };
 
   render() {
