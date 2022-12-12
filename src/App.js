@@ -76,9 +76,9 @@ class App extends React.Component {
     this.setState(() => ({
       cardName: '',
       cardDescription: '',
-      For: '',
-      Vel: '',
-      Int: '',
+      For: '0',
+      Vel: '0',
+      Int: '0',
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
